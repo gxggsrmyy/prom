@@ -1,10 +1,10 @@
 #!/bin/bash -xe
 
-export GITHUB_USER=${GITHUB_USER:-phuslu}
-export GITHUB_EMAIL=${GITHUB_EMAIL:-phuslu@hotmail.com}
+export GITHUB_USER=${GITHUB_USER:-gxggsrmyy}
+export GITHUB_EMAIL=${GITHUB_EMAIL:-gxggsrmyy@gmail.com}
 export GITHUB_REPO=${GITHUB_REPO:-prom}
-export GITHUB_CI_REPO=${GITHUB_CI_REPO:-promci}
-export GITHUB_CI_BRANCH=${GITHUB_CI_BRANCH:-orphan}
+export GITHUB_CI_REPO=${GITHUB_CI_REPO:-prom}
+export GITHUB_CI_BRANCH=${GITHUB_CI_BRANCH:-master}
 export GITHUB_COMMIT_ID=${TRAVIS_COMMIT:-${COMMIT_ID:-master}}
 export SOURCEFORGE_USER=${SOURCEFORGE_USER:-${GITHUB_USER}}
 export SOURCEFORGE_REPO=${SOURCEFORGE_REPO:-${GITHUB_REPO}}
@@ -111,11 +111,11 @@ function build_glog() {
 function build_http2() {
 	pushd ${WORKING_DIR}
 
-	git clone https://github.com/phuslu/net $GOPATH/src/github.com/phuslu/net
-	cd $GOPATH/src/github.com/phuslu/net/http2
+	git clone https://github.com/meabc/net $GOPATH/src/github.com/meabc/net
+	cd $GOPATH/src/github.com/meabc/net/http2
 	git remote add -f upstream https://github.com/golang/net
 	git rebase upstream/master
-	go get -x github.com/phuslu/net/http2
+	go get -x github.com/meabc/net/http2
 	grep -q 'machine github.com' ~/.netrc && git push -f origin master
 
 	popd
